@@ -1,3 +1,4 @@
 export const API_URLS = {
-  PRODUCTS_URL: 'http://localhost:8080/api/produit'
+  PRODUCTS_URL: 'http://localhost:8080/api/produit',
+  USER_URL: 'http://localhost:8080/api/user'
 };

@@ -23,4 +23,6 @@ export class NavbarComponent implements OnInit {
     this.showSideBarChange.emit(this.showSideBar);
   }
 
+  logout(){}
+
 }
