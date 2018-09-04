@@ -1,25 +1,47 @@
-<div class="cont offset-3">
-  <form [formGroup]="loginForm" (submit)="login()">
-    <div class="imgcontainer">
-      <img src="../../assets/img/logo_gest_stock.jpg" alt="Avatar" class="avatar">
+<body  class="inventory-body">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign In</h5>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-7">
+                <img src="../../assets/img/logo_stock.jpg" class="rounded-circle" />
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <form class="form-signin" [formGroup]="loginForm" (submit)="login()">
+            <div class="form-label-group">
+              <input type="text" id="username" class="form-control"
+                     placeholder="Username" required autofocus name="username"
+                     formControlName="username" [(ngModel)]="credentials.username">
+              <label for="username">Username</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" id="password" class="form-control"
+                     placeholder="Password" required name="password"
+                     formControlName="password" [(ngModel)]="credentials.password">
+              <label for="password">Password</label>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" checked="checked" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+            <hr class="my-4">
+            <div class="container">
+              <button type="button" class="btn btn-danger">Cancel</button>
+              <span class="pull-right">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-
-    <div class="container">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" formControlName="username" [(ngModel)]="credentials.username" />
-
-      <label for="pwd">Password:</label>
-      <input type="password" id="pwd" name="password" formControlName="password" [(ngModel)]="credentials.password" />
-
-      <button type="submit">Log In</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+  </div>
 </div>
+</body>
