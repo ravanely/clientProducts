@@ -1,13 +1,25 @@
-<div>
+<div class="cont offset-3">
   <form [formGroup]="loginForm" (submit)="login()">
-    <div>
+    <div class="imgcontainer">
+      <img src="../../assets/img/logo_gest_stock.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" formControlName="username" [(ngModel)]="credentials.username" />
-    </div>
-    <div>
+
       <label for="pwd">Password:</label>
       <input type="password" id="pwd" name="password" formControlName="password" [(ngModel)]="credentials.password" />
+
+      <button type="submit">Log In</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
     </div>
-    <button type="submit">Log In</button>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
   </form>
 </div>

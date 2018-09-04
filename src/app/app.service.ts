@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {API_URLS} from './config/api.url.config';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,15 @@ export class AppService {
 
   authenticated = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   authenticate(credentials, callback) {
     if (credentials) {
       const token = btoa(credentials.username + ':' + credentials.password);
 
-      const headers = new HttpHeaders(credentials ? {
-        authorization: 'Basic' + token
-      } : {});
+      this.cookieService.set('token', token);
 
-     this.http.get(API_URLS.USER_URL, {headers: headers}).subscribe(response => {
+     this.http.get(API_URLS.USER_URL).subscribe(response => {
        if (response && response['name']) {
          this.authenticated = true;
        } else {
@@ -27,8 +26,12 @@ export class AppService {
        }
        return callback && callback();
      });
-    }else {
+    } else {
       this.authenticated = false;
     }
+  }
+
+  logout(callback) {
+      return callback && callback();
   }
 }
