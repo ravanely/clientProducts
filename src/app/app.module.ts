@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import {AppService} from './app.service';
 import {XhrInterceptor} from './xhr.interceptor';
 import {CookieService} from 'ngx-cookie-service';
+import { UserComponent } from './user/user.component';
+import {StoreModule} from '@ngrx/store';
+import {PrincipalReducer} from './shared/principal.reducer';
 
 
 @NgModule({
@@ -28,12 +31,14 @@ import {CookieService} from 'ngx-cookie-service';
     DashboardComponent,
     LoginComponent,
     HomeComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({principal: PrincipalReducer})
   ],
   providers: [
     ProduitService,
