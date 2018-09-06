@@ -11,6 +11,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProduitComponent implements OnInit {
 
+  produits: Produit
+  constructor(private produitService: ProduitService,
+              private fb: FormBuilder, private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.initProduit();
+    this.produits = this.route.snapshot.data.produits;
+  }
+/*
   produitForm: FormGroup;
 
   produits: ProduitModel[];
@@ -71,5 +81,5 @@ export class ProduitComponent implements OnInit {
       this.selectedProduit = new ProduitModel();
       this.loadProduits();
     });
-  }
+  }*/
 }

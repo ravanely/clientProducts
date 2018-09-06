@@ -19,6 +19,8 @@ import {CookieService} from 'ngx-cookie-service';
 import { UserComponent } from './user/user.component';
 import {StoreModule} from '@ngrx/store';
 import {principalReducer} from './shared/principal.reducer';
+import {UserService} from './user/user.service';
+import { CrudComponent } from './shared/crud/crud.component';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {principalReducer} from './shared/principal.reducer';
     LoginComponent,
     HomeComponent,
     UserComponent,
+    CrudComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {principalReducer} from './shared/principal.reducer';
     ProduitService,
     AppService,
     {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true},
-    CookieService
+    CookieService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
