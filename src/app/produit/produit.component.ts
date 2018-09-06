@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Produit} from '../shared/produit';
+import {ProduitModel} from '../shared/produit.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProduitService} from './produit.service';
 import {ActivatedRoute} from '@angular/router';
@@ -13,11 +13,11 @@ export class ProduitComponent implements OnInit {
 
   produitForm: FormGroup;
 
-  produits: Produit[];
+  produits: ProduitModel[];
 
   operation = 'add';
 
-  selectedProduit: Produit;
+  selectedProduit: ProduitModel;
 
   constructor(private produitService: ProduitService,
               private fb: FormBuilder, private route: ActivatedRoute) {
@@ -38,7 +38,7 @@ export class ProduitComponent implements OnInit {
   }
 
   loadProduits() {
-    this.produitService.getProduits().subscribe(data => {
+    this.produitService.getAll().subscribe(data => {
       this.produits = data;
       }, error => {
       console.log('An error was occured');
@@ -47,28 +47,28 @@ export class ProduitComponent implements OnInit {
     });
   }
 
-  addProduit() {
+  add() {
     const p = this.produitForm.value;
     this.initProduit();
-    this.produitService.addProduit(p).subscribe(res => {this.loadProduits();
+    this.produitService.add(p).subscribe(res => {this.loadProduits();
     });
   }
 
-  updateProduit() {
-    this.produitService.updateProduit(this.selectedProduit).subscribe(res => {
+  update() {
+    this.produitService.update(this.selectedProduit).subscribe(res => {
       this.initProduit();
       this.loadProduits();
     });
   }
 
   initProduit() {
-    this.selectedProduit = new Produit();
+    this.selectedProduit = new ProduitModel();
     this.createForm();
   }
 
-  deleteProduit() {
-    this.produitService.deleteProduit(this.selectedProduit.id).subscribe(res => {
-      this.selectedProduit = new Produit();
+  delete() {
+    this.produitService.delete(this.selectedProduit.id).subscribe(res => {
+      this.selectedProduit = new ProduitModel();
       this.loadProduits();
     });
   }

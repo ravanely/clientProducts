@@ -21,4 +21,23 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  hasRoleUser() {
+    let hasRole = false;
+    this.principal.authorities.forEach(item => {
+      if (item.authority === 'ROLE_USER') {
+        hasRole = true;
+      }
+    });
+    return hasRole;
+  }
+
+  hasRoleAdmin() {
+    let hasRole = false;
+    this.principal.authorities.forEach(item => {
+      if (item.authority === 'ROLE_ADMIN') {
+        hasRole = true;
+      }
+    });
+    return hasRole;
+  }
 }

@@ -6,25 +6,25 @@ import {ProduitModel} from '../shared/produit.model';
 import {CrudService} from '../shared/crud.service';
 
 @Injectable()
-export class ProduitService implements CrudService{
+export class UserService implements CrudService{
 
   constructor(private http: HttpClient) {
   }
 
-  add(produit): Observable<any> {
-    return this.http.post(API_URLS.PRODUCTS_URL, produit);
+  add(user): Observable<any> {
+    return this.http.post(API_URLS.USER_CRUD_URL, user);
   }
 
   delete(id): Observable<any> {
-    return this.http.delete(API_URLS.PRODUCTS_URL + `/${id}`);
+    return this.http.delete(API_URLS.USER_CRUD_URL + `/${id}`);
   }
 
   getAll(): Observable<any> {
-    return this.http.get(API_URLS.PRODUCTS_URL);
+    return this.http.get(API_URLS.USER_CRUD_URL);
   }
 
-  update(produit): Observable<any> {
-    return this.http.put(API_URLS.PRODUCTS_URL, produit);
+  update(user): Observable<any> {
+    return this.http.put(API_URLS.USER_CRUD_URL, user);
   }
 
 }

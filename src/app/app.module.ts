@@ -18,7 +18,7 @@ import {XhrInterceptor} from './xhr.interceptor';
 import {CookieService} from 'ngx-cookie-service';
 import { UserComponent } from './user/user.component';
 import {StoreModule} from '@ngrx/store';
-import {PrincipalReducer} from './shared/principal.reducer';
+import {principalReducer} from './shared/principal.reducer';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import {PrincipalReducer} from './shared/principal.reducer';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({principal: PrincipalReducer})
+    StoreModule.forRoot({principal: principalReducer})
   ],
   providers: [
     ProduitService,

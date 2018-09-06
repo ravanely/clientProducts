@@ -1,4 +1,4 @@
-export class Produit {
+export class ProduitModel {
 
   constructor(
               public id?: number,
