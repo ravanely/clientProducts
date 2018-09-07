@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProduitModel} from '../produit.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProduitService} from '../../produit/produit.service';
 import {ActivatedRoute} from '@angular/router';
 import {CrudService} from '../crud.service';
+import {DataModel} from '../data.model';
 
 @Component({
   selector: 'app-crud',
@@ -19,7 +19,16 @@ export class CrudComponent implements OnInit {
   service: CrudService;
 
   @Input()
+  title: string;
+
+  @Input()
   initItem: any;
+
+  @Input()
+  dataModelList: DataModel[];
+
+  @Input()
+  initForm: FormGroup;
 
   crudForm: FormGroup;
 
@@ -36,16 +45,16 @@ export class CrudComponent implements OnInit {
   }
 
   createForm() {
-    this.crudForm = this.fb.group({});
+    this.initForm ? this.crudForm = this.initForm : this.crudForm = this.fb.group({});
   }
 
   loadData() {
     this.service.getAll().subscribe(data => {
       this.data = data;
     }, error => {
-      console.log('An error was occured');
+      console.log('An error was occured.');
     }, () => {
-      console.log('loading produits was done');
+      console.log('load data was done.');
     });
   }
 

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {API_URLS} from '../config/api.url.config';
-import {ProduitModel} from '../shared/produit.model';
 import {CrudService} from '../shared/crud.service';
 
 @Injectable()
