@@ -1,7 +1,7 @@
 <nav class="hidden-xs-down bg-faded sidebar">
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="[{outlets: {contentOutlet: 'dashboard'}}]" *ngIf="hasRoleUser()"
+      <a class="nav-link" [routerLink]="[{outlets: {contentOutlet: 'dashboard'}}]" *ngIf="hasRoleAdmin()"
          routerLinkActive="active">Dasboard</a>
     </li>
     <li class="nav-item">
@@ -12,7 +12,5 @@
       <a class="nav-link" [routerLink]="[{outlets: {contentOutlet: 'user'}}]" *ngIf="hasRoleAdmin()"
          routerLinkActive="active">Utilisateurs</a>
     </li>
-    <li class="nav-item"><a href="#" class="nav-link">Analytics</a></li>
-    <li class="nav-link"><a href="#" class="nav-link">Exports</a></li>
   </ul>
 </nav>

@@ -27,10 +27,8 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.users = this.route.snapshot.data.users;
     this.userForm = this.fb.group({
-      username: ['', Validators.required],
-/*      quantite: '',
-      prixUnitaire: ''*/
-    })
+      username: ['', Validators.required]
+    });
 
     this.usersModel = [
       new DataModel('id', 'ID', 'number', true, []),
