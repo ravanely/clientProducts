@@ -36,10 +36,10 @@
 
             <div  *ngIf="operation == 'add' || operation == 'edit'">
               <form [formGroup]="crudForm">
-                <div class="alert alert-danger"
+                <!--<div class="alert alert-danger"
                      *ngIf="crudForm.controls['ref'].invalid && (crudForm.controls['ref'].touched || crudForm.controls['ref'].dirty)">
                   La référence est Obligatoire !
-                </div>
+                </div>-->
 
                 <div *ngFor="let dataModel of dataModelList" [ngSwitch]="dataModel.dataType">
                   <div class="form-group" *ngIf="!dataModel.readonly">
