@@ -3,13 +3,35 @@
     <app-my-chart
       [type]="'bar'"
       [title]="'Produits par Catégorie'"
+      [data]="produitsData"
     ></app-my-chart>
   </div>
 
   <div class="col-lg-7">
     <app-my-chart
       [type]="'line'"
-      [title]="'Réprésentation linéaire des produitsa'"
+      [title]="'Réprésentation linéaire des produits'"
+      [data]="produitsData"
+    ></app-my-chart>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-lg-5">
+    <app-my-chart
+      [type]="'bar'"
+      [title]="'Utilisateur par rôle'"
+      [data]="usersData"
+    ></app-my-chart>
+  </div>
+
+  <div class="col-lg-7">
+    <app-my-chart
+      [type]="'line'"
+      [title]="'Réprésentation linéaire des utilisateurs'"
+      [data]="usersData"
     ></app-my-chart>
   </div>
 </div>
